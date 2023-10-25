@@ -1,3 +1,4 @@
 theme: jekyll-theme-hacker
 title: ToeJuicer's homepage
 description: You can't stop us, securly.
+permalink: /:categories/:year/:month/:day/:title:output_ext
