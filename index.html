@@ -1,38 +1,15 @@
+<!DOCTYPE html>
 <html>
- 
-  <head>
-  </head>
- 
-  <body>
-    <button>Fullscreen</button>
-    <script>
-      var urlObj = new window.URL(window.location.href);
-      var url = "DELETE THIS AND ENTER YOUR LINK HERE";
-      if (url) {
-        var win;
- 
-        document.querySelector('button').onclick = function() {
-          if (win) {
-            win.focus();
-          } else {
-            win = window.open();
-            win.document.body.style.margin = '0';
-            win.document.body.style.height = '100vh';
-            var iframe = win.document.createElement('iframe');
-            iframe.style.border = 'none';
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.margin = '0';
-            iframe.src = url;
-            win.document.body.appendChild(iframe);
-          }
-          document.querySelector('button').style.bacground = 'grey';
-          document.querySelector('button').innerHTML = "Play Now";
-        };
-      }
- 
-    </script>
-  </body>
- 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+html<br>\u003c!DOCTYPE html\u003e<br>\u003chtml\u003e<br>\u003chead\u003e<br> \u003ctitle\u003eSimple 2D Platformer\u003c/title\u003e<br> \u003cstyle\u003e<br> body {<br> margin: 0;<br> padding: 0;<br> width: 100%;<br> height: 100%;<br> }<br><br> canvas {<br> display: block;<br> margin: 0 auto;<br> width: 100%;<br> height: 100%;<br> }<br> \u003c/style\u003e<br>\u003c/head\u003e<br>\u003cbody\u003e<br> \u003ccanvas id=\"canvas\" width=\"640\" height=\"480\"\u003e\u003c/canvas\u003e<br><br> \u003cscript\u003e<br> // Create the canvas and context<br> var canvas = document.getElementById(\"canvas\");<br> var ctx = canvas.getContext(\"2d\");<br><br> // Create the player<br> var player = {<br> x: 100,<br> y: 100,<br> width: 50,<br> height: 50,<br> speed: 5<br> };<br><br> // Create the platforms<br> var platforms = [<br> {<br> x: 100,<br> y: 200,<br> width: 200,<br> height: 50<br> },<br> {<br> x: 300,<br> y: 300,<br> width: 100,<br> height: 50<br> },<br> {<br> x: 500,<br> y: 400,<br> width: 50,<br> height: 50<br> }<br> ];<br><br> // Update the game state<br> function update() {<br> // Handle player movement<br> if (keys[37]) { // Left arrow key<br> player.x -= player.speed;<br> }<br> if (keys[39]) { // Right arrow key<br> player.x += player.speed;<br> }<br> if (keys[38]) { // Up arrow key<br> player.y -= player.speed;<br> }<br> if (keys[40]) { // Down arrow key<br> player.y += player.speed;<br> }<br><br> // Handle player collision with platforms<br> for (var i = 0; i \u003c platforms.length; i++) {<br> var platform = platforms[i];<br> if (player.x + player.width \u003e platform.x &&<br> player.x \u003c platform.x + platform.width &&<br> player.y + player.height \u003e platform.y &&<br> player.y \u003c platform.y + platform.height) {<br> // The player is colliding with the platform<br> if (player.y \u003c platform.y) {<br> // The player is above the platform<br> player.y = platform.y - player.height;<br> } else if (player.y \u003e platform.y + platform.height) {<br> // The player is below the platform<br> player.y = platform.y + platform.height;<br> } else if (player.x \u003c platform.x) {<br> // The player is to the left of the platform<br> player.x = platform.x - player.width;<br> } else if (player.x \u003e platform.x + platform.width) {<br> // The player is to the right of the platform<br> player.x = platform.x + platform.width;<br> }<br> }<br> }<br> }<br><br> // Draw the game state<br> function draw() {<br> // Clear the canvas<br> ctx.clearRect(0, 0, canvas.width, canvas.height);<br><br> // Draw the player<br> ctx.fillStyle = \"#0000FF\";<br> ctx.fillRect(player.x, player.y, player.width, player.height);<br><br> // Draw the platforms<br> ctx.fillStyle = \"#00FF00\";<br> for (var i = 0; i \u003c platforms.length; i++) {<br> var platform = platforms[i];<br> ctx.fillRect(platform.x, platform.y, platform.width, platform.height);<br> }<br> }<br><br> // The main game loop<br> function gameLoop() {<br> update();<br> draw();<br><br> // Request the next animation frame<br> requestAnimationFrame(gameLoop);<br> }<br><br> // Start the game loop<br> gameLoop();<br> \u003c/script\u003e<br>\u003c/body\u003e<br>\u003c/html\u003e<br>
+</body>
+
 </html>
- 
